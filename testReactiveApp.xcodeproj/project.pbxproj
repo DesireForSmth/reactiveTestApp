@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		823F3A0A27F304040073DC47 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F3A0927F304040073DC47 /* ViewModel.swift */; };
+		823F3A0E27F309810073DC47 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F3A0D27F309810073DC47 /* DataModel.swift */; };
 		8262A5D927F2FC1E00FD779A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262A5D827F2FC1E00FD779A /* AppDelegate.swift */; };
 		8262A5DB27F2FC1E00FD779A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262A5DA27F2FC1E00FD779A /* SceneDelegate.swift */; };
 		8262A5DD27F2FC1E00FD779A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262A5DC27F2FC1E00FD779A /* ViewController.swift */; };
-		8262A5E027F2FC1E00FD779A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8262A5DE27F2FC1E00FD779A /* Main.storyboard */; };
 		8262A5E227F2FC1F00FD779A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8262A5E127F2FC1F00FD779A /* Assets.xcassets */; };
 		8262A5E527F2FC1F00FD779A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8262A5E327F2FC1F00FD779A /* LaunchScreen.storyboard */; };
+		82D1966B27F3239C00478EEF /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D1966A27F3239C00478EEF /* CellViewModel.swift */; };
+		82D1966D27F3265A00478EEF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D1966C27F3265A00478EEF /* TableViewCell.swift */; };
+		8CD04ACA2179D5FC31C365A8 /* libPods-testReactiveApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3A2ECF0F583D3FE9D8CACC /* libPods-testReactiveApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		823F3A0927F304040073DC47 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		823F3A0D27F309810073DC47 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		8262A5D527F2FC1E00FD779A /* testReactiveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testReactiveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8262A5D827F2FC1E00FD779A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8262A5DA27F2FC1E00FD779A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8262A5DC27F2FC1E00FD779A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8262A5DF27F2FC1E00FD779A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8262A5E127F2FC1F00FD779A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8262A5E427F2FC1F00FD779A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8262A5E627F2FC1F00FD779A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82D1966A27F3239C00478EEF /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
+		82D1966C27F3265A00478EEF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A31C36F5C9235DB3069E6132 /* Pods-testReactiveApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testReactiveApp.debug.xcconfig"; path = "Target Support Files/Pods-testReactiveApp/Pods-testReactiveApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F41A35B1C0883B00DCDFF3DA /* Pods-testReactiveApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testReactiveApp.release.xcconfig"; path = "Target Support Files/Pods-testReactiveApp/Pods-testReactiveApp.release.xcconfig"; sourceTree = "<group>"; };
+		FC3A2ECF0F583D3FE9D8CACC /* libPods-testReactiveApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testReactiveApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CD04ACA2179D5FC31C365A8 /* libPods-testReactiveApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54C7FB245EDF40B324562409 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A31C36F5C9235DB3069E6132 /* Pods-testReactiveApp.debug.xcconfig */,
+				F41A35B1C0883B00DCDFF3DA /* Pods-testReactiveApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		823F3A0B27F304210073DC47 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8262A5DC27F2FC1E00FD779A /* ViewController.swift */,
+				82D1966C27F3265A00478EEF /* TableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		823F3A0C27F304350073DC47 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				823F3A0927F304040073DC47 /* ViewModel.swift */,
+				82D1966A27F3239C00478EEF /* CellViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		823F3A0F27F3098A0073DC47 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				823F3A0D27F309810073DC47 /* DataModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		8262A5CC27F2FC1E00FD779A = {
 			isa = PBXGroup;
 			children = (
 				8262A5D727F2FC1E00FD779A /* testReactiveApp */,
 				8262A5D627F2FC1E00FD779A /* Products */,
+				54C7FB245EDF40B324562409 /* Pods */,
+				DE13162914C0EE09A8AB3839 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +106,22 @@
 			children = (
 				8262A5D827F2FC1E00FD779A /* AppDelegate.swift */,
 				8262A5DA27F2FC1E00FD779A /* SceneDelegate.swift */,
-				8262A5DC27F2FC1E00FD779A /* ViewController.swift */,
-				8262A5DE27F2FC1E00FD779A /* Main.storyboard */,
+				823F3A0F27F3098A0073DC47 /* Models */,
+				823F3A0C27F304350073DC47 /* ViewModels */,
+				823F3A0B27F304210073DC47 /* Views */,
 				8262A5E127F2FC1F00FD779A /* Assets.xcassets */,
 				8262A5E327F2FC1F00FD779A /* LaunchScreen.storyboard */,
 				8262A5E627F2FC1F00FD779A /* Info.plist */,
 			);
 			path = testReactiveApp;
+			sourceTree = "<group>";
+		};
+		DE13162914C0EE09A8AB3839 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC3A2ECF0F583D3FE9D8CACC /* libPods-testReactiveApp.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +131,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8262A5E927F2FC1F00FD779A /* Build configuration list for PBXNativeTarget "testReactiveApp" */;
 			buildPhases = (
+				3FEF08482850D415625B85E4 /* [CP] Check Pods Manifest.lock */,
 				8262A5D127F2FC1E00FD779A /* Sources */,
 				8262A5D227F2FC1E00FD779A /* Frameworks */,
 				8262A5D327F2FC1E00FD779A /* Resources */,
@@ -127,19 +185,47 @@
 			files = (
 				8262A5E527F2FC1F00FD779A /* LaunchScreen.storyboard in Resources */,
 				8262A5E227F2FC1F00FD779A /* Assets.xcassets in Resources */,
-				8262A5E027F2FC1E00FD779A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FEF08482850D415625B85E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-testReactiveApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8262A5D127F2FC1E00FD779A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				823F3A0E27F309810073DC47 /* DataModel.swift in Sources */,
 				8262A5DD27F2FC1E00FD779A /* ViewController.swift in Sources */,
 				8262A5D927F2FC1E00FD779A /* AppDelegate.swift in Sources */,
+				823F3A0A27F304040073DC47 /* ViewModel.swift in Sources */,
+				82D1966B27F3239C00478EEF /* CellViewModel.swift in Sources */,
+				82D1966D27F3265A00478EEF /* TableViewCell.swift in Sources */,
 				8262A5DB27F2FC1E00FD779A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +233,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8262A5DE27F2FC1E00FD779A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8262A5DF27F2FC1E00FD779A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8262A5E327F2FC1F00FD779A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,6 +362,7 @@
 		};
 		8262A5EA27F2FC1F00FD779A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A31C36F5C9235DB3069E6132 /* Pods-testReactiveApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,7 +373,7 @@
 				INFOPLIST_FILE = testReactiveApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,6 +391,7 @@
 		};
 		8262A5EB27F2FC1F00FD779A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F41A35B1C0883B00DCDFF3DA /* Pods-testReactiveApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,7 +402,7 @@
 				INFOPLIST_FILE = testReactiveApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
