@@ -11,6 +11,7 @@ import ReactiveCocoa
 
 class MainViewModel: NSObject, MainViewModelProtocol {
 
+    private var spawnCount = 5
     var alphabetString = "abcdefghijklmnopqrstuvwxyz"
 
     var shouldUpdateTable: MutableProperty<Bool> = MutableProperty(false)
@@ -59,7 +60,7 @@ class MainViewModel: NSObject, MainViewModelProtocol {
     var cellModels: [CellViewModel] = []
 
     func generateCellModels() {
-        for prop in self.buttonTableProps.suffix(5) {
+        for prop in self.buttonTableProps.suffix(self.spawnCount) {
             self.mutableCellCollection.value.append(CellViewModel(properties: prop))
         }
 //        self.mutableDisplayedCollection.value.append(contentsOf: self.mutableCellCollection.value)
@@ -94,8 +95,7 @@ class MainViewModel: NSObject, MainViewModelProtocol {
 
     func generateNewCellModels() {
         print("call generate")
-        let count = 5
-        for _ in 0...(count - 1) {
+        for _ in 0...(self.spawnCount - 1) {
             self.buttonTableProps.append(generateRandomTableProps())
         }
         self.needsUpdateModelsCollection.value = true
