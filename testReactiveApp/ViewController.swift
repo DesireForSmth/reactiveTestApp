@@ -45,14 +45,20 @@ class ViewController: UIViewController {
             self.disposableObserver = signal.start(observer)
         }
 
-        self.viewModel?.mutableCellCollection.producer
-            .skipRepeats()
+        self.viewModel?.mutableDisplayedCollection.producer
             .startWithValues { array in
                 self.tableView.reloadData()
                 self.cellCountLabel.text = "Cell count: \(array.count)"
             }
-        
+        self.viewModel?.filterSignal = self.filterTextField.reactive.continuousTextValues
     }
+
+    private var filterTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Print text to filter"
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
 
     private var cellCountLabel: UILabel = {
         let label = UILabel()
@@ -93,16 +99,19 @@ class ViewController: UIViewController {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor),
+            self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             self.tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
 
             self.generateNewCellsButton.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
-            self.generateNewCellsButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
+            self.generateNewCellsButton.bottomAnchor.constraint(equalTo: self.tableView.topAnchor, constant: -15),
 
             self.cellCountLabel.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
-            self.cellCountLabel.bottomAnchor.constraint(equalTo: self.generateNewCellsButton.topAnchor, constant: -15)
+            self.cellCountLabel.bottomAnchor.constraint(equalTo: self.generateNewCellsButton.topAnchor, constant: -15),
+
+            self.filterTextField.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
+            self.filterTextField.bottomAnchor.constraint(equalTo: self.cellCountLabel.topAnchor, constant: -16)
         ])
     }
 
@@ -110,6 +119,7 @@ class ViewController: UIViewController {
         self.view.addSubview(self.tableView)
         self.view.addSubview(self.generateNewCellsButton)
         self.view.addSubview(self.cellCountLabel)
+        self.view.addSubview(self.filterTextField)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.backgroundColor = .white
@@ -145,3 +155,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}
