@@ -17,7 +17,7 @@ class CellViewModel: NSObject, CellViewModelProtocol {
 
     public init(properties: ButtonProps) {
         self.properties = properties
-        self.cellText = properties.state.rawValue
+        self.cellText = properties.title
     }
 
     func getCellTitle() -> String {

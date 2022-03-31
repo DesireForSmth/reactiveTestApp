@@ -17,8 +17,9 @@ enum ButtonState: String, CaseIterable {
 struct ButtonProps {
     var state: ButtonState
     var color: UIColor
+    var title: String
 
-    init (state: ButtonState) {
+    init (state: ButtonState, title: String) {
         self.state = state
         switch state {
         case .loading:
@@ -28,6 +29,7 @@ struct ButtonProps {
         case .error:
             self.color = .red
         }
+        self.title = title
     }
 }
 

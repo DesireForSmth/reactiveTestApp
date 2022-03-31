@@ -45,10 +45,6 @@ class ViewController: UIViewController {
             self.disposableObserver = signal.start(observer)
         }
 
-//        self.viewModel?.modelsCountSignalProducerGenerator.producer
-//            .startWithValues { value in
-//                self.cellCountLabel.text = "Cell count: \(value)"
-//            }
         self.viewModel?.mutableCellCollection.producer
             .skipRepeats()
             .startWithValues { array in
@@ -114,22 +110,15 @@ class ViewController: UIViewController {
         self.view.addSubview(self.tableView)
         self.view.addSubview(self.generateNewCellsButton)
         self.view.addSubview(self.cellCountLabel)
-//        self.generateNewCellsButton.reactive.isHidden <~ viewModel?.isLoading
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.backgroundColor = .white
         self.tableView.separatorStyle = .none
-//        self.tableView.backgroundColor = .white
         self.setupConstraints()
-//        self.tableView.reloadData()
     }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//           return 1
-//       }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -145,9 +134,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonStateCell", for: indexPath) as? TableViewCell else {
             return .init()
         }
-//        guard let cellView = cell as? TableViewCell else {
-//            return cell
-//        }
 
         guard let cellModel = viewModel?.getCellModels()[indexPath.row] else {
             return cell
@@ -156,12 +142,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setup(viewModel: cellModel)
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100
-//    }
-    
-    
 
 }
 

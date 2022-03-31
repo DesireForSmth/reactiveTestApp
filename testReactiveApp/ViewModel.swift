@@ -11,12 +11,14 @@ import ReactiveCocoa
 
 class MainViewModel: NSObject, MainViewModelProtocol {
 
+    var alphabetString = "abcdefghijklmnopqrstuvwxyz"
+
     var shouldUpdateTable: MutableProperty<Bool> = MutableProperty(false)
 
     var buttonTableProps = [
-        ButtonProps(state: .error),
-        ButtonProps(state: .loading),
-        ButtonProps(state: .ready)
+        ButtonProps(state: .error, title: "a"),
+        ButtonProps(state: .loading, title: "ab"),
+        ButtonProps(state: .ready, title: "abc")
     ]
 
     var mutableCellCollection: MutableProperty<[CellViewModel]> = MutableProperty([])
@@ -34,7 +36,8 @@ class MainViewModel: NSObject, MainViewModelProtocol {
     }
 
     private func generateRandomTableProps() -> ButtonProps {
-        let props = ButtonProps(state: ButtonState.allCases.randomElement() ?? .error)
+        let title = String(self.alphabetString.prefix(self.buttonTableProps.count % 26 + 1))
+        let props = ButtonProps(state: ButtonState.allCases.randomElement() ?? .error, title: title)
         self.mutableCellCollection.value.append(CellViewModel(properties: props))
         return props
     }
@@ -49,10 +52,8 @@ class MainViewModel: NSObject, MainViewModelProtocol {
 }
 
 protocol MainViewModelProtocol: AnyObject {
-//    var isLoading: Property<Bool> { get }
     func getCellModels() -> [CellViewModelProtocol]
     func generateCellModels()
     func generateNewCellModels()
     var mutableCellCollection: MutableProperty<[CellViewModel]> { get set }
-//    var modelsCountSignalProducerGenerator: MutableProperty<Int> { get set }
 }
