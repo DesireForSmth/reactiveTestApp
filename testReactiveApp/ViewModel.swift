@@ -17,6 +17,8 @@ class MainViewModel: NSObject, MainViewModelProtocol {
 
     var filterSignalObserver: Signal<String, Never>.Observer?
 
+    var lastSearchRequest: String = ""
+
     var filterSignal: Signal<String, Never>? {
         didSet {
             guard let observer = self.filterSignalObserver else { return }
@@ -24,13 +26,25 @@ class MainViewModel: NSObject, MainViewModelProtocol {
         }
     }
 
+    private var needsUpdateModelsCollection = MutableProperty(false)
+
     override init() {
         super.init()
         self.filterSignalObserver = Signal<String, Never>.Observer(value: { [ weak self ] value in
             guard let self = self else { return }
             let lowercaseValue = value.localizedLowercase
+            self.lastSearchRequest = lowercaseValue
             self.filterCells(with: lowercaseValue)
         })
+        self.needsUpdateModelsCollection.producer.skipRepeats().startWithValues({ [ weak self ] value in
+            if value {
+                guard let self = self else { return }
+                self.generateCellModels()
+                self.filterCells(with: self.lastSearchRequest)
+                self.needsUpdateModelsCollection.value = false
+            }
+        })
+        self.needsUpdateModelsCollection.value = true
     }
 
     var buttonTableProps = [
@@ -45,11 +59,10 @@ class MainViewModel: NSObject, MainViewModelProtocol {
     var cellModels: [CellViewModel] = []
 
     func generateCellModels() {
-        for prop in buttonTableProps {
+        for prop in self.buttonTableProps.suffix(5) {
             self.mutableCellCollection.value.append(CellViewModel(properties: prop))
         }
-//        self.mutableDisplayedCollection.value.removeAll()
-        self.mutableDisplayedCollection.value.append(contentsOf: self.mutableCellCollection.value)
+//        self.mutableDisplayedCollection.value.append(contentsOf: self.mutableCellCollection.value)
     }
 
     func getCellModels() -> [CellViewModelProtocol] {
@@ -57,23 +70,25 @@ class MainViewModel: NSObject, MainViewModelProtocol {
     }
 
     func filterCells(with string: String) {
+        self.mutableDisplayedCollection.value.removeAll()
         if string.isEmpty {
             self.mutableDisplayedCollection.value.append(contentsOf: self.mutableCellCollection.value)
         }
-        self.mutableDisplayedCollection.value.removeAll()
-        var cellModelsToShow = [CellViewModelProtocol]()
-        for model in self.mutableCellCollection.value {
-            if model.getCellTitle().hasPrefix(string) {
-                cellModelsToShow.append(model)
+        else {
+            var cellModelsToShow = [CellViewModelProtocol]()
+            for model in self.mutableCellCollection.value {
+                if model.getCellTitle().hasPrefix(string) {
+                    cellModelsToShow.append(model)
+                }
             }
+            self.mutableDisplayedCollection.value.append(contentsOf: cellModelsToShow)
         }
-        self.mutableDisplayedCollection.value.append(contentsOf: cellModelsToShow)
     }
 
     private func generateRandomTableProps() -> ButtonProps {
         let title = String(self.alphabetString.prefix(self.buttonTableProps.count % 26 + 1))
         let props = ButtonProps(state: ButtonState.allCases.randomElement() ?? .error, title: title)
-        self.mutableDisplayedCollection.value.append(CellViewModel(properties: props))
+//        self.mutableCellCollection.value.append(CellViewModel(properties: props))
         return props
     }
 
@@ -83,6 +98,7 @@ class MainViewModel: NSObject, MainViewModelProtocol {
         for _ in 0...(count - 1) {
             self.buttonTableProps.append(generateRandomTableProps())
         }
+        self.needsUpdateModelsCollection.value = true
     }
 }
 

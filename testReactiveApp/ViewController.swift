@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     public init(model: MainViewModelProtocol) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = model
-        self.viewModel?.generateCellModels()
+//        self.viewModel?.generateCellModels()
     }
 
     required init?(coder: NSCoder) {
