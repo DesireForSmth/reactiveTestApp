@@ -57,6 +57,9 @@ class MainViewModel: NSObject, MainViewModelProtocol {
     }
 
     func filterCells(with string: String) {
+        if string.isEmpty {
+            self.mutableDisplayedCollection.value.append(contentsOf: self.mutableCellCollection.value)
+        }
         self.mutableDisplayedCollection.value.removeAll()
         var cellModelsToShow = [CellViewModelProtocol]()
         for model in self.mutableCellCollection.value {
