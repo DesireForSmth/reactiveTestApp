@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum ButtonState: String {
+enum ButtonState: String, CaseIterable {
     case loading = "Change to loading"
     case ready = "Change to ready"
     case error = "Change to error"
@@ -17,5 +17,17 @@ enum ButtonState: String {
 struct ButtonProps {
     var state: ButtonState
     var color: UIColor
+
+    init (state: ButtonState) {
+        self.state = state
+        switch state {
+        case .loading:
+            self.color = .orange
+        case .ready:
+            self.color = .green
+        case .error:
+            self.color = .red
+        }
+    }
 }
 

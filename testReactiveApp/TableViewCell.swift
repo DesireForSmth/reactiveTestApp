@@ -50,7 +50,6 @@ class TableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = ""
         label.textColor = .white
-        label.alpha = 0.8
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false

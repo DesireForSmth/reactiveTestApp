@@ -7,6 +7,7 @@
 
 import Foundation
 import ReactiveSwift
+import UIKit
 
 class CellViewModel: NSObject, CellViewModelProtocol {
 
@@ -26,6 +27,7 @@ class CellViewModel: NSObject, CellViewModelProtocol {
     func getCellColor() -> UIColor {
         return properties.color
     }
+
 }
 
 protocol CellViewModelProtocol: AnyObject {
